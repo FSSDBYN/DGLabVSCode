@@ -1,0 +1,153 @@
+{
+  "name": "dglabvscode",
+  "displayName": "DGLabVSCode",
+  "description": "郊狼VSCode插件",
+  "publisher": "lxyddice",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dglabvscode.create",
+        "title": "DGLabVSCode: 开始连接"
+      },
+      {
+        "command": "dglabvscode.serR",
+        "title": "DGLabVSCode: 刷新配置"
+      },
+      {
+        "command": "dglabvscode.setPulseName",
+        "title": "DGLabVSCode: 设置波形名称"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "郊狼VSCode插件配置",
+      "properties": {
+        "dglabvscode.blacklist": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "default": [],
+            "description": "黑名单后缀名列表"
+        },
+        "dglabvscode.strength": {
+          "type": "number",
+          "default": 5,
+          "description": "基础强度"
+        },
+        "dglabvscode.pulseName": {
+          "type": "string",
+          "default": "快速按捏",
+          "description": "波形名称"
+        },
+        "dglabvscode.heartbeatInterval": {
+          "type": "number",
+          "default": 30,
+          "description": "心跳间隔与强度渐增间隔"
+        },
+        "dglabvscode.maxAddInterval": {
+          "type": "number",
+          "default": 20,
+          "description": "最大强度渐增"
+        },
+        "dglabvscode.maxStrength":{
+          "type":"number",
+          "default":200,
+          "description": "一键开火强度限制"
+        },
+        "dglabvscode.onDidStartDebugSession": {
+          "type": "number",
+          "default": 15,
+          "description": "开始调试时一键开火"
+        },
+        "dglabvscode.onDidTerminateDebugSession": {
+          "type": "number",
+          "default": 15,
+          "description": "结束调试时一键开火"
+        },
+        "extension.onDidReceiveDebugSessionCustomEvent": {
+          "type": "number",
+          "default": 20,
+          "description": "报错惩罚喵"
+        },
+        "dglabvscode.onDidChangeBreakpoints": {
+          "type": "number",
+          "default": 10,
+          "description": "断点变化一键开火"
+        },
+        "dglabvscode.onDidSaveTextDocument": {
+          "type": "number",
+          "default": 12,
+          "description": "保存文件一键开火"
+        },
+        "dglabvscode.condingMaxfFrequency": {
+          "type": "number",
+          "default": 20,
+          "description": "编辑代码时超过一定频率清空输出队列防止手快打代码多了被电114年（喵？ 单位为事件数/20秒）"
+        },
+        "dglabvscode.messageSendOption": {
+          "type": "string",
+          "default": "AB一起输出",
+          "enum": [
+            "仅A通道输出",
+            "仅B通道输出",
+            "AB一起输出"
+          ],
+          "enumDescriptions": [
+            "仅A通道输出",
+            "仅B通道输出",
+            "AB一起输出"
+          ],
+          "description": "设置一个输出选项"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "dglabvscode.create",
+        "key": "ctrl+u",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/log4js": "^2.3.5",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/qrcode": "^1.5.5",
+    "@types/uuid": "^10.0.0",
+    "@types/vscode": "^1.93.0",
+    "@types/websocket": "^1.0.10",
+    "@types/ws": "^8.5.12",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "log4js": "^6.9.1",
+    "qrcode": "^1.5.4",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0"
+  }
+}
