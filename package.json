@@ -2,7 +2,6 @@
   "name": "dglabvscode",
   "displayName": "DGLabVSCode",
   "description": "郊狼VSCode插件",
-  "publisher": "lxyddice",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.93.0"
@@ -33,12 +32,12 @@
       "title": "郊狼VSCode插件配置",
       "properties": {
         "dglabvscode.blacklist": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "default": [],
-            "description": "黑名单后缀名列表"
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "黑名单后缀名列表"
         },
         "dglabvscode.strength": {
           "type": "number",
@@ -60,9 +59,9 @@
           "default": 20,
           "description": "最大强度渐增"
         },
-        "dglabvscode.maxStrength":{
-          "type":"number",
-          "default":200,
+        "dglabvscode.maxStrength": {
+          "type": "number",
+          "default": 200,
           "description": "一键开火强度限制"
         },
         "dglabvscode.onDidStartDebugSession": {
