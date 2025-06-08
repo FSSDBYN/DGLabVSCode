@@ -25,6 +25,10 @@
       {
         "command": "dglabvscode.setPulseName",
         "title": "DGLabVSCode: 设置波形名称"
+      },
+      {
+        "command": "dglabvscode.addPulse",
+        "title": "DGLabVSCode：新增波形"
       }
     ],
     "configuration": {
